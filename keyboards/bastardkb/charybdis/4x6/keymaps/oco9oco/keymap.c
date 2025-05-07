@@ -132,10 +132,11 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
     static bool mouse_layer_on = false;
     bool now_on = layer_state_cmp(state, _ONEHAND);    
-    if (now_on && !mouse_layer_on) {
+    //if (now_on && !mouse_layer_on) {
         // 마우스 레이어 진입 시
-        tap_code(KC_LCTL);  // 예: 음소거 키 입력
-    } else if (!now_on && mouse_layer_on) {
+        // tap_code(KC_LCTL);  // 예: 음소거 키 입력
+    //} else 
+    if (!now_on && mouse_layer_on) {
         // 마우스 레이어 탈출 시
         tap_code(KC_LCTL);  // 예: 볼륨업 키 입력
     } 
