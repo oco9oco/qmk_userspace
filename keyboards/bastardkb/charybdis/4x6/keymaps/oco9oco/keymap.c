@@ -114,7 +114,7 @@ void pointing_device_init_user(void) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    // checks highest layer other than target layer
+// checks highest layer other than target layer
     switch(get_highest_layer(remove_auto_mouse_layer(state, true))) {
         case _MOUSE:
         case _NAV:
@@ -123,11 +123,23 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             state = remove_auto_mouse_layer(state, false);
             set_auto_mouse_enable(false);
             break;
+
         default:
             set_auto_mouse_enable(true);
             break;
     }
     // recommend that any code that makes adjustment based on auto mouse layer state would go here
+
+    static bool mouse_layer_on = false;
+    bool now_on = layer_state_cmp(state, _ONEHAND);    
+    if (now_on && !mouse_layer_on) {
+        // 마우스 레이어 진입 시
+        tap_code(KC_LCTL);  // 예: 음소거 키 입력
+    } else if (!now_on && mouse_layer_on) {
+        // 마우스 레이어 탈출 시
+        tap_code(KC_LCTL);  // 예: 볼륨업 키 입력
+    } 
+    mouse_layer_on = now_on;
     return state;
 }
 

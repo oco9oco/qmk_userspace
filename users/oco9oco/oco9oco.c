@@ -41,6 +41,7 @@ void appcmd(uint16_t keycode) {
 
 // process_record_user
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
     switch (keycode) {
         case THUMB_L2:
         case THUMB_L3:
@@ -480,6 +481,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         // case SFTT_F:
         // case CTLT_D:
         //     return TAPPING_TERM ;
+        case SFTT_F:
         case LGUI_T(KC_Z):
             return TAPPING_TERM + 200;
         case SFTT_J:
@@ -513,10 +515,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case THUMB_R1:
         case THUMB_R3:
         case SFT_CAPS:
-        //case SFTT_A:
+        case SFTT_A:
         // case SFTT_Z:
         // case GUIT_Z:
-        // case SFTT_F:
+        case SFTT_F:
         // case SFTT_J:
         // case ALTT_S:
         // case CTLT_D:
@@ -547,18 +549,25 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
 // Exceptionally allow some one-handed chords for hotkeys.
 switch (tap_hold_keycode) {
 case LSFT_T(KC_A):
-if (other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
-return true;
-}
-break;
+    if (other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
+    return true;
+    } else {return false;}
+    break;
 
 case LSFT_T(KC_F):
-if (other_keycode == KC_Q) {
-return true;
-}
+    if (other_keycode == KC_Q) {
+    return true;
+    } else {return false;}
+    break;
 
-break;
-
+case THUMB_L1:
+case THUMB_L2:
+case THUMB_L3:   
+case THUMB_R1:
+case THUMB_R2:
+case THUMB_R3:
+    return true;
+    break;
 }
 // Otherwise defer to the opposite hands rule.
 return get_chordal_hold_default(tap_hold_record, other_record);
