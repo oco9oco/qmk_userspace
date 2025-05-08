@@ -626,27 +626,27 @@ return get_chordal_hold_default(tap_hold_record, other_record);
 // This code rotates the mouse report by 15 degrees counter-clockwise.
 
 
-// #include "math.h"
+#include "math.h"
 
-// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-//     report_mouse_t new_report = mouse_report;
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    report_mouse_t new_report = mouse_report;
 
-//     // 15도 회전 변환 공식 (반시계 방향)
-//     // x' =  cos(15°) * x - sin(15°) * y
-//     // y' =  sin(15°) * x + cos(15°) * y
+    // 15도 회전 변환 공식 (반시계 방향)
+    // x' =  cos(15°) * x - sin(15°) * y
+    // y' =  sin(15°) * x + cos(15°) * y
 
-//     float angle = 15.0 * M_PI / 180.0;  // 라디안 변환
-//     float cos_a = cosf(angle);         // 약 0.9659
-//     float sin_a = sinf(angle);         // 약 0.2588
+    float angle = 15.0 * M_PI / 180.0;  // 라디안 변환
+    float cos_a = cosf(angle);         // 약 0.9659
+    float sin_a = sinf(angle);         // 약 0.2588
 
-//     float old_x = (float)mouse_report.x;
-//     float old_y = (float)mouse_report.y;
+    float old_x = (float)mouse_report.x;
+    float old_y = (float)mouse_report.y;
 
-//     float new_x =  cos_a * old_x - sin_a * old_y;
-//     float new_y =  sin_a * old_x + cos_a * old_y;
+    float new_x =  cos_a * old_x - sin_a * old_y;
+    float new_y =  sin_a * old_x + cos_a * old_y;
 
-//     new_report.x = (int8_t)roundf(new_x);
-//     new_report.y = (int8_t)roundf(new_y);
+    new_report.x = (int8_t)roundf(new_x);
+    new_report.y = (int8_t)roundf(new_y);
 
-//     return new_report;
-// }
+    return new_report;
+}

@@ -14,4 +14,4 @@ MOUSEKEY_ENABLE = yes
 RGBLIGHT_ENABLE = no
 
 # 트랙볼 캘리브레이션용. 버벅거린다면 주석처리
-# FLOAT_ENABLE = yes
+FLOAT_ENABLE = yes
