@@ -465,6 +465,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             break;
+        case USR_LNG:
+            if (__TAPPED__  && __PRESSED__) {
+                tap_code(KC_LNG1);
+            } else if (__PRESSED__) {
+                register_code(KC_LNG2);
+            } else {
+                unregister_code(KC_LNG2);
+            }
+            return false;
+            break;
 
 
     }
