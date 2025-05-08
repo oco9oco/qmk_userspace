@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "oco9oco.h" //look for users/oco9oco/
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //clang-format off
 
@@ -44,17 +45,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      SFT_CAPS,__________________QWERTY_SACS_L2___________,          __________________QWERTY_R2________________, KC_QUOT,
      KC_LGUI, KC_Z, KC_X, LT(_ONEHAND,KC_C),KC_V,   KC_B,           __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                               THUMB_L1,THUMB_L2, TT(_ONEHAND),/*      */THUMB_R3,THUMB_R2,
-                                        THUMB_L3, USR_LNG,/*      */THUMB_R1
-//                            ╰───────────────────────────╯       ╰──────────────────╯
+                               THUMB_L1,THUMB_L2, THUMB_L3,/*      */THUMB_R3,THUMB_R2,
+                                         USR_LNG, TT(_ONEHAND),/*      */THUMB_R1
+//                            ╰───────────────────────────╯       ╰──────────────────╯qmk
 ),
 
 [_IPC] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      ALT_F4,  C(KC_F1),KC_P,    KC_X,    INV_DSP, TO(_ONEHAND),    KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, XXXXXXX, _______,
-     ALT_TAB, INV_DSP, XXXXXXX, CLASS_E, CLASS_A, HWP_MACRO,       KC_GRV,  _________NUM_789_________, XXXXXXX, _______,
+     ALT_TAB, INV_DSP, KC_LEFT, KC_RGHT, CLASS_A, HWP_MACRO,       KC_GRV,  _________NUM_789_________, XXXXXXX, _______,
      _______, IPC(A),  IPC(S),  IPC_MIN, IPC(F),  KC_DOT,          AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
-     IME_CHG, IPC(Z),  HWP_CITE,IPC(C),  KC_EQL,  KC_BSLS,         XXXXXXX, _________NUM_123_________, _______, KC_PIPE,
+     KC_LGUI, SNIPING, HWP_CITE,KC_BTN2, KC_BTN1, DRGSCRL,         IME_CHG, _________NUM_123_________, _______, KC_PIPE,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */HWP_MACRO, LT(_NAV, KC_0),
                                          QK_BOOT, _______,/*      */IME_CHG
@@ -98,15 +99,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      ALT_F4,  CTRL_F1, KC_LEFT, XXXXXXX, KC_RGHT, KC_F5,            S_D_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX, KC_WH_U, XXXXXXX,          S_D_RMOD,KC_BTN4, KC_BTN5, XXXXXXX, XXXXXXX, QK_MAKE,
-     XXXXXXX, KC_LCTL, KC_BTN2, KC_LSFT, KC_BTN1, DPI_MOD,        C(KC_TAB), KC_BTN3, KC_BTN1, KC_BTN2, DRGSCRL, XXXXXXX,
-     DRG_TOG, DRGSCRL, KC_BTN2, _______, KC_BTN1, DPI_RMOD,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SNIPING, XXXXXXX,
+     XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX, KC_WH_U, XXXXXXX,          S_D_RMOD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
+     XXXXXXX, KC_LCTL, KC_BTN2, KC_LSFT, KC_BTN1, DPI_MOD,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     DRG_TOG, DRGSCRL, KC_BTN2, _______, KC_BTN1, DPI_RMOD,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                                KC_LCTL, _______, _______,/*      */_______, _______,
-                                         _______, DRG_TOG,/*      */_______
+                                THUMB_L1, SNIPING, TO(_BASE),/*      */_______, _______,
+                                         _______, _______,/*      */_______
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 };
+
+
 // in keymap.c:
 // void pointing_device_init_user(void) {
 //     set_auto_mouse_layer(_ONEHAND); // only required if AUTO_MOUSE_DEFAULT_LAYER is not set to index of <mouse_layer>

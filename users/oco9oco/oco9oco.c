@@ -570,12 +570,24 @@ case LSFT_T(KC_F):
     } else {return false;}
     break;
 
+    case LALT_T(KC_S):
+    if (other_keycode == THUMB_L1) {
+    return true;
+    } else {return false;}
+    break;
+
 case THUMB_L1:
 case THUMB_L2:
-case THUMB_L3:   
+case THUMB_L3:
+case TT(_ONEHAND):
 case THUMB_R1:
 case THUMB_R2:
 case THUMB_R3:
+case IPC(A):
+case IPC(S):
+case IPC_MIN: 
+case IPC(F):
+case IPC(Z):
     return true;
     break;
 }
@@ -584,3 +596,57 @@ return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
 
+
+// charybdis trackball angular alignment calibration
+// This code rotates the mouse report by 15 degrees counter-clockwise.
+
+// #include "math.h"
+
+// #define FIXED_POINT 256
+// #define COS_15 ((int16_t)(cosf(15.0 * M_PI / 180.0) * FIXED_POINT))  // 0.9659
+// #define SIN_15 ((int16_t)(sinf(15.0 * M_PI / 180.0) * FIXED_POINT))  // 0.2588
+
+// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+//     report_mouse_t new_report = mouse_report;
+
+//     int16_t x = mouse_report.x;
+//     int16_t y = mouse_report.y;
+
+//     int16_t new_x = (COS_15 * x - SIN_15 * y) / FIXED_POINT;
+//     int16_t new_y = (SIN_15 * x + COS_15 * y) / FIXED_POINT;
+
+//     new_report.x = (int8_t)new_x;
+//     new_report.y = (int8_t)new_y;
+
+//     return new_report;
+// }
+
+
+// charybdis trackball angular alignment calibration(floating point)
+// This code rotates the mouse report by 15 degrees counter-clockwise.
+
+
+// #include "math.h"
+
+// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+//     report_mouse_t new_report = mouse_report;
+
+//     // 15도 회전 변환 공식 (반시계 방향)
+//     // x' =  cos(15°) * x - sin(15°) * y
+//     // y' =  sin(15°) * x + cos(15°) * y
+
+//     float angle = 15.0 * M_PI / 180.0;  // 라디안 변환
+//     float cos_a = cosf(angle);         // 약 0.9659
+//     float sin_a = sinf(angle);         // 약 0.2588
+
+//     float old_x = (float)mouse_report.x;
+//     float old_y = (float)mouse_report.y;
+
+//     float new_x =  cos_a * old_x - sin_a * old_y;
+//     float new_y =  sin_a * old_x + cos_a * old_y;
+
+//     new_report.x = (int8_t)roundf(new_x);
+//     new_report.y = (int8_t)roundf(new_y);
+
+//     return new_report;
+// }

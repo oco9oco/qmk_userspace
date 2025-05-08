@@ -12,3 +12,6 @@ SRC+=oco9oco.c
 MOUSEKEY_ENABLE = yes
 # RGB 라이트 기능 활성화
 RGBLIGHT_ENABLE = no
+
+# 트랙볼 캘리브레이션용. 버벅거린다면 주석처리
+# FLOAT_ENABLE = yes
