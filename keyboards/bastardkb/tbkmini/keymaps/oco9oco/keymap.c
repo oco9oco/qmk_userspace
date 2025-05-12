@@ -33,10 +33,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_IPC] = LAYOUT_crkbd_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    A(KC_F4),        C(KC_F1), SCRNSHOT, G(KC_E), CLASS_A, HWP_MACRO,                  KC_GRV,  _________NUM_789_________, _______, KC_PLUS,
-    TO(_DOOM),         IPC(A),   IPC(S),   IPC_MIN, IPC(F), KC_DOT,                  AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
-    TO(_BASE_NOMOD), IPC(Z),   HWP_CITE, IPC(C),  KC_EQL,  KC_BSLS,                  XXXXXXX, _________NUM_123_________, _______, KC_PIPE,
-                                        TO(_BASE_NOMOD), _______, TO(_BASE),   KC_LPRN, KC_RPRN, LT(_NAV,KC_0)
+    A(KC_F4), C(KC_F1), SCRNSHOT, G(KC_E), CLASS_A, HWP_MACRO,               KC_GRV,  _________NUM_789_________, _______, KC_PLUS,
+    TO(_DOOM), IPC(A),   IPC(S), _IPC_MIN, IPC(F), KC_DOT,                  AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
+    XXXXXXX, IPC(Z),   HWP_CITE, IPC(C),  KC_EQL,  KC_BSLS,                  XXXXXXX, _________NUM_123_________, _______, KC_PIPE,
+                          TO(_BASE_SWAP), _______, TO(_BASE),       KC_LPRN, KC_RPRN, LT(_NAV,KC_0)
 ),
   [_NUM] = LAYOUT_crkbd_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|

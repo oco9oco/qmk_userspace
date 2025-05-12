@@ -43,24 +43,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC,  __________________NUMROW_L_________________,          __________________NUMROW_R_________________, KC_MINS,
      KC_TAB,  __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
      SFT_CAPS,__________________QWERTY_SACS_L2___________,          __________________QWERTY_R2________________, KC_QUOT,
-     KC_LGUI, KC_Z, KC_X, LT(_ONEHAND,KC_C),KC_V,   KC_B,           __________________QWERTY_HOME_R3___________, KC_BSLS,
+     KC_LGUI, KC_Z, KC_X, KC_C, KC_V,   KC_B,                       __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                               THUMB_L1,THUMB_L2, THUMB_L3,/*      */THUMB_R3,THUMB_R2,
-                                         USR_LNG, TT(_ONEHAND),/*      */THUMB_R1
-//                            ╰───────────────────────────╯       ╰──────────────────╯qmk
+                               THUMB_L1,THUMB_L2, USR_LNG,/*      */THUMB_R3,THUMB_R2,
+                                        THUMB_L3, TT(_ONEHAND),     THUMB_R1
+//                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 
 [_IPC] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     ALT_F4,  C(KC_F1),KC_P,    KC_X,    INV_DSP, TO(_ONEHAND),    KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, XXXXXXX, _______,
-     ALT_TAB, INV_DSP, KC_LEFT, KC_RGHT, CLASS_A, HWP_MACRO,       KC_GRV,  _________NUM_789_________, XXXXXXX, _______,
-     _______, IPC(A),  IPC(S),  IPC_MIN, IPC(F),  KC_DOT,          AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
-     KC_LGUI, SNIPING, HWP_CITE,KC_BTN2, KC_BTN1, DRGSCRL,         IME_CHG, _________NUM_123_________, _______, KC_PIPE,
+     ALT_F4,  C(KC_F1),KC_P,    KC_X,    INV_DSP, IME_CHG,          KC_LBRC,  KC_RBRC, KC_LPRN, KC_RPRN, XXXXXXX, _______,
+     ALT_TAB, INV_DSP, XXXXXXX, CLASS_A, SNIPING, KC_BTN2,          KC_GRV,   _________NUM_789_________, XXXXXXX, _______,
+     _______, IPC(A),  IPC(S),  IPC_D_,  IPC(F),  KC_BTN1,          AT_IPC,   _________NUM_456_________, KC_COLN, KC_DQUO,
+     KC_LGUI, IPC(Z), HWP_CITE, IPC(C),  XXXXXXX, DRGSCRL,          HWP_MACRO,_________NUM_123_________, _______, KC_PIPE,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                                _______, _______, _______,/*      */HWP_MACRO, LT(_NAV, KC_0),
+                                _______, _______, _______,/*      */_______, LT(_NAV, KC_0),
                                          QK_BOOT, _______,/*      */IME_CHG
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
+// [_NUM] = LAYOUT_charybdis_wrapper(
+// // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
+//      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
+//      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, XXXXXXX, 
+//      XXXXXXX, XXXXXXX, KC_BTN2, NUM(D),  KC_BTN1, XXXXXXX,          XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, XXXXXXX, 
+//      XXXXXXX, XXXXXXX, HWP_CITE,XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, XXXXXXX, 
+// // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
+//                                 _______, _______, _______,/*      */_______, LT(_NUM, KC_0),
+//                                          _______, _______,/*      */IME_CHG
+// //                            ╰───────────────────────────╯       ╰──────────────────╯
+// ),
 [_NAV] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      _______, CTRL_F1, KC_F2,   KC_F3,   ALT_F4,   KC_F5,           XXXXXXX, A(KC_7), A(KC_5), A(KC_9), A(KC_0), XXXXXXX,
@@ -98,74 +109,78 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     ALT_F4,  CTRL_F1, KC_LEFT, XXXXXXX, KC_RGHT, KC_F5,            S_D_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     XXXXXXX, XXXXXXX, KC_WH_D, XXXXXXX, KC_WH_U, XXXXXXX,          S_D_RMOD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
-     XXXXXXX, KC_LCTL, KC_BTN2, KC_LSFT, KC_BTN1, DPI_MOD,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-     DRG_TOG, DRGSCRL, KC_BTN2, _______, KC_BTN1, DPI_RMOD,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     _______,  CTRL_F1, KC_LEFT, XXXXXXX, KC_RGHT, KC_F5,            S_D_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
+     XXXXXXX, XXXXXXX, KC_WH_D, DRG_TOG, KC_WH_U, KC_F6,          \S_D_RMOD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
+     XXXXXXX, KC_LCTL, KC_BTN2, DRGSCRL, KC_BTN1, KC_F7,          DPI_MOD, XXXXXXX, XXXXXXX, G(KC_6), XXXXXXX, XXXXXXX,
+     XXXXXXX, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), XXXXXXX,          DPI_RMOD,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                                THUMB_L1, SNIPING, TO(_BASE),/*      */_______, _______,
+                                DRGSCRL, SNIPING, TO(_BASE),/*      */_______, _______,
                                          _______, _______,/*      */_______
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 };
 
 
-// in keymap.c:
-// void pointing_device_init_user(void) {
-//     set_auto_mouse_layer(_ONEHAND); // only required if AUTO_MOUSE_DEFAULT_LAYER is not set to index of <mouse_layer>
-//     set_auto_mouse_enable(true);         // always required before the auto mouse feature will work
-// }
 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-// // checks highest layer other than target layer
-//     switch(get_highest_layer(remove_auto_mouse_layer(state, true))) {
-//         case _MOUSE:
-//         case _NAV:
-//         case _IPC:
-//             // remove_auto_mouse_target must be called to adjust state *before* setting enable
-//             state = remove_auto_mouse_layer(state, false);
-//             set_auto_mouse_enable(false);
-//             break;
+#ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+     void pointing_device_init_user(void) {
+     set_auto_mouse_layer(_ONEHAND); // only required if AUTO_MOUSE_DEFAULT_LAYER is not set to index of <mouse_layer>
+     set_auto_mouse_enable(true);         // always required before the auto mouse feature will work
+     }
 
-//         default:
-//             set_auto_mouse_enable(true);
-//             break;
-//     }
-//     // recommend that any code that makes adjustment based on auto mouse layer state would go here
+     layer_state_t layer_state_set_user(layer_state_t state) {
+     // checks highest layer other than target layer
+     switch(get_highest_layer(remove_auto_mouse_layer(state, true))) {
+          case _MOUSE:
+          case _NAV:
+          case _IPC:
+               // remove_auto_mouse_target must be called to adjust state *before* setting enable
+               state = remove_auto_mouse_layer(state, false);
+               set_auto_mouse_enable(false);
+               break;
 
-//     static bool mouse_layer_on = false;
-//     bool now_on = layer_state_cmp(state, _ONEHAND);    
-//     //if (now_on && !mouse_layer_on) {
-//         // 마우스 레이어 진입 시
-//         // tap_code(KC_LCTL);  // 예: 음소거 키 입력
-//     //} else 
-//     if (!now_on && mouse_layer_on) {
-//         // 마우스 레이어 탈출 시
-//         tap_code(KC_LCTL);
-//     } 
-//     mouse_layer_on = now_on;
-//     return state;
-// }
+          default:
+               set_auto_mouse_enable(true);
+               break;
+     }
+     // recommend that any code that makes adjustment based on auto mouse layer state would go here
 
-// bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
-//     switch(keycode) {
-//         case DRGSCRL:
-//         case SNIPING:
-//         case KC_LCTL:
-//         case KC_LALT:
-//         case KC_LSFT:
-//             return true;
-//         default:
-//             return false;
-//     }
-//     return is_mouse_record_user(keycode, record);
-// }
+     static bool mouse_layer_on = false;
+     bool now_on = layer_state_cmp(state, _ONEHAND);    
+     if (now_on && !mouse_layer_on) {
+          // 마우스 레이어 진입 시
+          register_code(KC_F13);  // 예: 음소거 키 입력
+     } else 
+     if (!now_on && mouse_layer_on) {
+          // 마우스 레이어 탈출 시
+          unregister_code(KC_F13);
+     } 
+     mouse_layer_on = now_on;
+     return state;
+     }
 
-char chordal_hold_handedness(keypos_t key) {
-    if (key.col == 0 || key.col == MATRIX_COLS - 1) {
-        return '*';  // Exempt the outer columns.
-    }
-    // On split keyboards, typically, the first half of the rows are on the
-    // left, and the other half are on the right.
-    return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
-}
+     bool is_mouse_record_kb(uint16_t keycode, keyrecord_t* record) {
+     switch(keycode) {
+          case DRGSCRL:
+          case SNIPING:
+          case KC_LCTL:
+          case KC_LALT:
+          case KC_LSFT:
+               return true;
+          default:
+               return false;
+     }
+     return is_mouse_record_user(keycode, record);
+     }
+#endif
+
+#ifdef CHORDAL_HOLD
+     char chordal_hold_handedness(keypos_t key) {
+     if (key.col == 0 || key.col == MATRIX_COLS - 1) {
+          return '*';  // Exempt the outer columns.
+     }
+     // On split keyboards, typically, the first half of the rows are on the
+     // left, and the other half are on the right.
+     return key.row < MATRIX_ROWS / 2 ? 'L' : 'R';
+     }
+#endif

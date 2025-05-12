@@ -124,6 +124,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 cite_done = false;
             }
             break;
+//
+#ifdef CHARYBDIS_CONFIG_SYNC
+        case DRG_TOG:
+            if (__PRESSED__) {
+                register_code(KC_F15);
+                } else {
+                unregister_code(KC_F15);
+                }
+            return true;
+            break;
+#endif
+
 
             // appcmd function
         case JOINTBL:
@@ -478,8 +490,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
     }
-    return true;
 
+return true;
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -507,37 +519,32 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 // Get hold on other key press
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record){
-    switch (keycode) {
-        case SFTT_A:
-            return true;
-        default:
-            return false;
-    }
-}
+// bool get_permissive_hold(uint16_t keycode, keyrecord_t *record){
+//     switch (keycode) {
+//         case SFTT_A:
+//             return true;
+//         default:
+//             return false;
+//     }
+// }
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 //        case LSFT_T(KC_W):
-        case IPC(Z):
         case THUMB_L1:
         case THUMB_L2:
         case THUMB_L3:
         case THUMB_R1:
         case THUMB_R3:
         case SFT_CAPS:
-        case SFTT_A:
-        // case SFTT_Z:
-        // case GUIT_Z:
-        case SFTT_F:
-        // case SFTT_J:
-        // case ALTT_S:
-        // case CTLT_D:
-        // case GUIT_SCL:
-        // case ALTT_L:
-        // case CTLT_K:
-        // case GUIT_A:
-        // case LT(_NAV, KC_0):
-        // case IPC_COMM:
+        
+        // case THUMB_R2:
+        // case SFTT_A:
+        // case SFTT_F:
+        case IPC(A):
+        case IPC(S):
+        case IPC_D_: 
+        case IPC(F):
+        case IPC(Z):
             return true;
         default:
             return false;
@@ -553,13 +560,13 @@ void matrix_scan_user(void) { // The very important timer.
     }
   }
 }
-
+#ifdef CHORDAL_HOLD
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     uint16_t other_keycode, keyrecord_t* other_record) {
 // Exceptionally allow some one-handed chords for hotkeys.
 switch (tap_hold_keycode) {
 case LSFT_T(KC_A):
-    if (other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
+    if (other_keycode == KC_Q ||other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
     return true;
     } else {return false;}
     break;
@@ -583,70 +590,46 @@ case TT(_ONEHAND):
 case THUMB_R1:
 case THUMB_R2:
 case THUMB_R3:
-case IPC(A):
-case IPC(S):
-case IPC_MIN: 
-case IPC(F):
-case IPC(Z):
     return true;
     break;
+
+
+    case IPC(A):
+    case IPC(S):
+    case IPC_D_: 
+    case IPC(F):
+    case IPC(Z):
+    if (other_keycode == IPC(A)||other_keycode == IPC(S)||other_keycode == IPC_D_||other_keycode == IPC(F)||other_keycode == IPC(Z)) {
+        return true;
+    }
+
 }
 // Otherwise defer to the opposite hands rule.
 return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
-
-
-// charybdis trackball angular alignment calibration
-// This code rotates the mouse report by 15 degrees counter-clockwise.
-
-// #include "math.h"
-
-// #define FIXED_POINT 256
-// #define COS_15 ((int16_t)(cosf(15.0 * M_PI / 180.0) * FIXED_POINT))  // 0.9659
-// #define SIN_15 ((int16_t)(sinf(15.0 * M_PI / 180.0) * FIXED_POINT))  // 0.2588
-
-// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-//     report_mouse_t new_report = mouse_report;
-
-//     int16_t x = mouse_report.x;
-//     int16_t y = mouse_report.y;
-
-//     int16_t new_x = (COS_15 * x - SIN_15 * y) / FIXED_POINT;
-//     int16_t new_y = (SIN_15 * x + COS_15 * y) / FIXED_POINT;
-
-//     new_report.x = (int8_t)new_x;
-//     new_report.y = (int8_t)new_y;
-
-//     return new_report;
-// }
-
-
+#endif
 // charybdis trackball angular alignment calibration(floating point)
 // This code rotates the mouse report by 15 degrees counter-clockwise.
 
 
-#include "math.h"
+// #include "math.h"
 
-report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-    report_mouse_t new_report = mouse_report;
+// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+//     report_mouse_t new_report = mouse_report;
 
-    // 15도 회전 변환 공식 (반시계 방향)
-    // x' =  cos(15°) * x - sin(15°) * y
-    // y' =  sin(15°) * x + cos(15°) * y
+//     // 15도 회전 변환 공식 (반시계 방향)
+//     // x' =  cos(15°) * x - sin(15°) * y
+//     // y' =  sin(15°) * x + cos(15°) * y
 
-    float angle = 15.0 * M_PI / 180.0;  // 라디안 변환
-    float cos_a = cosf(angle);         // 약 0.9659
-    float sin_a = sinf(angle);         // 약 0.2588
+//     float old_x = (float)mouse_report.x;
+//     float old_y = (float)mouse_report.y;
 
-    float old_x = (float)mouse_report.x;
-    float old_y = (float)mouse_report.y;
+//     float new_x =  COS15 * old_x - SIN15 * old_y;
+//     float new_y =  SIN15 * old_x + COS15 * old_y;
 
-    float new_x =  cos_a * old_x - sin_a * old_y;
-    float new_y =  sin_a * old_x + cos_a * old_y;
+//     new_report.x = (int8_t)roundf(new_x);
+//     new_report.y = (int8_t)roundf(new_y);
 
-    new_report.x = (int8_t)roundf(new_x);
-    new_report.y = (int8_t)roundf(new_y);
-
-    return new_report;
-}
+//     return new_report;
+// }

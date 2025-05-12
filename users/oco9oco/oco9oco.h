@@ -110,18 +110,14 @@ Z X C V B  N M , . /
 #define _IPC_MIN LCTL_T(KC_MINS)
 
 #define IPC(x) LT(_IPC, KC_##x)
-#define NAV(x) LT(_NAV, KC_##x)
-#define IPC_MIN _IPC_MIN
+#define IPC_D_ _IPC_MIN
 #define IPC_COMM LSFT_T(KC_COMM)
-#define _NUM_A LT(_NUM, KC_A)
-#define _NUM_S LT(_NUM, KC_S)
-#define _NUM_D LT(_NUM, KC_D)
-#define _NUM_F LT(_NUM, KC_F)
+#define NAV(x) LT(_NAV, KC_##x)
+#define NUM(x) LT(_NUM, KC_##x)
 #define _NUM_MIN LCTL_T(KC_MINS)
 #define IME_CHG G(C(KC_SPC))
 #define INV_DSP G(C(KC_C))
 #define USR_LNG LT(_BASE, KC_LNG1)
-#define NUM(x) LT(_NUM, KC_##x)
 //#define DRGMT LT(_ONEHAND, KC_F22)
 #define BULLET_U C(S(KC_LBRC))
 #define BULLET_D C(S(KC_RBRC))
@@ -339,3 +335,7 @@ enum layer_index {
     _ONEHAND, //
     _SETTINGS,
 };
+
+//트랙볼 좔표계 보정용 상수
+static const float COS15 = 0.965925826f;  // cos(15°)
+static const float SIN15 = 0.258819045f;  // sin(15°)
