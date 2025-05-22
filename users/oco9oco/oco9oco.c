@@ -313,7 +313,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-            case IPC(A):
+        case IPC(A):
             if (__TAPPED__ && __PRESSED__) {
                 if(!cite_done){tap_code(KC_BSPC);}
                     switch (switch_cite){
@@ -331,6 +331,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     break;
                     case 3:
                     SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_D) SS_TAP(X_LNG1));
+                    switch_cite = 4;
+                    break;
+                    case 4:
+                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_E) SS_TAP(X_LNG1));
                     switch_cite = 0;
                     break;
                     }
@@ -354,6 +358,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
+
         case IPC(F):
             if (__TAPPED__ && __PRESSED__) {
                 SEND_STRING(", ");
@@ -398,11 +403,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case SFT_CAPS:
             if (__TAPPED__ && __PRESSED__) {
-                tap_code16(KC_CAPS);
+                tap_code(KC_LNG1);
             } else if (__PRESSED__) {
-                register_code(KC_LNG1);
+                register_code(KC_CAPS);
             } else {
-                unregister_code(KC_LNG1);
+                unregister_code(KC_CAPS);
             }
             return false;
             break;
@@ -488,7 +493,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-
+        case LT(_ONEHAND,KC_BTN2):
+            if (__TAPPED__ && __PRESSED__) {
+                tap_code(KC_BTN2);
+            } else if (__PRESSED__) {
+                register_code(KC_LALT);
+            } else {
+                unregister_code(KC_LALT);
+            }
+            return false;
+            break;
     }
 
 return true;
@@ -536,7 +550,6 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case THUMB_R1:
         case THUMB_R3:
         case SFT_CAPS:
-        
         // case THUMB_R2:
         // case SFTT_A:
         // case SFTT_F:
@@ -561,53 +574,19 @@ void matrix_scan_user(void) { // The very important timer.
   }
 }
 #ifdef CHORDAL_HOLD
-bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
-    uint16_t other_keycode, keyrecord_t* other_record) {
-// Exceptionally allow some one-handed chords for hotkeys.
-switch (tap_hold_keycode) {
-case LSFT_T(KC_A):
-    if (other_keycode == KC_Q ||other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
-    return true;
-    } else {return false;}
-    break;
-
-case LSFT_T(KC_F):
-    if (other_keycode == KC_Q) {
-    return true;
-    } else {return false;}
-    break;
-
-    case LALT_T(KC_S):
-    if (other_keycode == THUMB_L1) {
-    return true;
-    } else {return false;}
-    break;
-
-case THUMB_L1:
-case THUMB_L2:
-case THUMB_L3:
-case TT(_ONEHAND):
-case THUMB_R1:
-case THUMB_R2:
-case THUMB_R3:
-    return true;
-    break;
-
-
-    case IPC(A):
-    case IPC(S):
-    case IPC_D_: 
-    case IPC(F):
-    case IPC(Z):
-    if (other_keycode == IPC(A)||other_keycode == IPC(S)||other_keycode == IPC_D_||other_keycode == IPC(F)||other_keycode == IPC(Z)) {
-        return true;
-    }
-
-}
-// Otherwise defer to the opposite hands rule.
-return get_chordal_hold_default(tap_hold_record, other_record);
-}
-
+// bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+//     uint16_t other_keycode, keyrecord_t* other_record) {
+// // Exceptionally allow some one-handed chords for hotkeys.
+// switch (tap_hold_keycode) {
+// case LSFT_T(KC_A):
+//     if (other_keycode == KC_Q ||other_keycode == KC_W || other_keycode == KC_E || other_keycode == KC_R || other_keycode == KC_T) {
+//     return true;
+//     } else {return false;}
+//     break;
+// }
+// // Otherwise defer to the opposite hands rule.
+// return get_chordal_hold_default(tap_hold_record, other_record);
+// }
 #endif
 // charybdis trackball angular alignment calibration(floating point)
 // This code rotates the mouse report by 15 degrees counter-clockwise.
