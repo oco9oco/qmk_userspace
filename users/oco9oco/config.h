@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-
+#define FORCE_NKRO
 #define TAPPING_TERM 200
 #define QUICK_TAP_TERM 0
 //#define PERMISSIVE_HOLD_PER_KEY
@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define CHORDAL_HOLD
 
 // AUTO SHIFT OPTIONS
-#define NO_AUTO_SHIFT_ALPHA
+#define AUTO_SHIFT_TIMEOUT_PER_KEY
 
 //MOUSEKEY OPTIONS
 

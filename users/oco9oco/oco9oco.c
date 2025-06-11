@@ -20,27 +20,72 @@ void appcmd(uint16_t keycode) {
     tap_code(KC_APP);
     tap_code(keycode);
 }
-//쌍자음 감지기
+
 /*
-    if keyrecord row가 doubleconsonants일 때
-        corne: row 0
-        lily58, kimiko, id75, moonlander: row 1
-    save instaShift on
-    else instaShift off
-
-    다룰 조합들
-    이따가  vs 임다가
-        -dlaekrk
-    QWERT 발동 조건
-
-    임대    vs 이때
-    이때    vs 이뗴
-    dlEo - shift QWERT 다음에는 무조건 shift 해제
-
+    오토쉬프트 on qwertp
 */
+
+
+
+bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case KC_Q:
+        case KC_W:
+        case KC_E:
+        case KC_R:
+        case KC_T:
+        case KC_P:
+            return true;
+        default:
+            return false;
+    }
+}
+
+
+
+
+
 
 // process_record_user
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+//GETREUR
+    //     if (record->event.pressed) {
+//     static deferred_token token = INVALID_DEFERRED_TOKEN;
+//     static report_mouse_t report = {0};
+//     if (token) {
+//       // If jiggler is currently running, stop when any key is pressed.
+//       cancel_deferred_exec(token);
+//       token = INVALID_DEFERRED_TOKEN;
+//       report = (report_mouse_t){};  // Clear the mouse.
+//       host_mouse_send(&report);
+//     } else if (keycode == JIGGLE) {
+
+//       uint32_t jiggler_callback(uint32_t trigger_time, void* cb_arg) {
+//         // Deltas to move in a circle of radius 20 pixels over 32 frames.
+//         static const int8_t deltas[32] = {
+//             0, -1, -2, -2, -3, -3, -4, -4, -4, -4, -3, -3, -2, -2, -1, 0,
+//             0, 1, 2, 2, 3, 3, 4, 4, 4, 4, 3, 3, 2, 2, 1, 0};
+//         static uint8_t phase = 0;
+//         // Get x delta from table and y delta by rotating a quarter cycle.
+//         report.x = deltas[phase];
+//         report.y = deltas[(phase + 8) & 31];
+//         phase = (phase + 1) & 31;
+//         host_mouse_send(&report);
+//         return 16;  // Call the callback every 16 ms.
+//       }
+
+//       token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
+//     }
+//   }
+
+
+
+
+
+
+
+
 
     switch (keycode) {
         case THUMB_L2:
@@ -403,11 +448,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case SFT_CAPS:
             if (__TAPPED__ && __PRESSED__) {
-                tap_code(KC_LNG1);
+                tap_code(KC_CAPS);
             } else if (__PRESSED__) {
-                register_code(KC_CAPS);
+                register_code(KC_LGUI);
             } else {
-                unregister_code(KC_CAPS);
+                unregister_code(KC_LGUI);
             }
             return false;
             break;
@@ -417,9 +462,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (__TAPPED__ && __PRESSED__) {
                 tap_code16(KC_DEL);
             } else if (__PRESSED__) {
-                register_code(KC_BTN4);
-            } else {
-                unregister_code(KC_BTN4);
+                layer_move(_ONEHAND);
             }
             return false;
             break;
@@ -567,7 +610,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 void matrix_scan_user(void) { // The very important timer.
   if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1000) {
+    if (timer_elapsed(alt_tab_timer) > 2000) {
       unregister_code(KC_LALT);
       is_alt_tab_active = false;
     }
