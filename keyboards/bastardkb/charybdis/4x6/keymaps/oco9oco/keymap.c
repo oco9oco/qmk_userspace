@@ -60,10 +60,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC, KC_WH_L, KC_BTN2, KC_BTN3, KC_BTN1, KC_WH_R,          __________________NUMROW_R_________________, KC_MINS,
      KC_TAB, __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
      SFT_CAPS, __________________QWERTY_SACS_L2___________,          __________________QWERTY_R2________________, KC_QUOT,
-     KC_ENT,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
+     KC_LGUI,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
-                                    TG(_BASE_NOMOD), TG(_ONEHAND),         THUMB_R1
+                                    KC_LALT, KC_LGUI,         THUMB_R1
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 
@@ -82,10 +82,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_IPC] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     ALT_F4,  C(KC_F1),XXXXXXX, SCRNSHOT,INV_DSP, XXXXXXX,          KC_LBRC,  KC_RBRC, KC_LPRN, KC_RPRN, XXXXXXX, _______,
+     ALT_F4,  C(KC_F1),XXXXXXX, SCRNSHOT,INV_DSP, TO(_ONEHAND),          KC_LBRC,  KC_RBRC, KC_LPRN, KC_RPRN, XXXXXXX, _______,
      ALT_TAB, INV_DSP, XXXXXXX, CLASS_A, XXXXXXX, XXXXXXX,          KC_GRV,   _________NUM_789_________, XXXXXXX, _______,
      USR_LNG, IPC(A),  IPC(S),  IPC_D_,  IPC(F),  KC_DOT,           AT_IPC,    _________NUM_456_________, KC_COLN, KC_DQUO,
-     KC_LGUI, IPC(Z), HWP_CITE, IPC(C),  KC_EQL,  XXXXXXX,          HWP_MACRO, _________NUM_123_________, _______, _______,
+     KC_LGUI, IPC(Z), HWP_CITE, IPC(C),  KC_EQL,  KC_ENT,     HWP_MACRO, _________NUM_123_________, _______, _______,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 TO(_DOOM), _______, _______,/*      */_______, LT(_NAV, KC_0),
                                            XXXXXXX, _______,/*      */IME_CHG
@@ -94,12 +94,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_DOOM] = LAYOUT_charybdis_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    KC_ESC, __________________NUMROW_L_________________,                   __________________NUMROW_R_________________, KC_MINS,  
-    KC_TAB,  KC_ENT,  KC_Q,    KC_W,    KC_E,    KC_R,                     TO(_BASE),XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
-    KC_TAB,  KC_LSFT, KC_A,    KC_S,    KC_D,    KC_G,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
-    KC_ENT,  KC_Z,    KC_X,    KC_4,    KC_V,    KC_B,                     XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
-                               KC_F,    KC_SPC,  KC_C,        KC_ENT, THUMB_R3, 
-                                  XXXXXXX, TO(_BASE),         THUMB_R2
+    KC_ESC, __________________NUMROW_L_________________,                   XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,  
+    KC_TAB,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,                     TO(_BASE),DPI_MOD,DPI_RMOD,XXXXXXX,XXXXXXX, XXXXXXX,
+    KC_Y,    KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,                     KC_WH_L, KC_WH_U,KC_BTN4,KC_BTN5,XXXXXXX, DPI_MOD,
+    KC_U,    KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,                     KC_WH_R,KC_WH_D,KC_BTN1,KC_BTN2,KC_BTN3, DPI_RMOD,
+                               KC_F,    KC_SPC,  KC_G,           KC_ENT, THUMB_R3, 
+                                        KC_I, TO(_BASE),         THUMB_R2
 ),
 
 // [_NUM] = LAYOUT_charybdis_wrapper(
@@ -150,13 +150,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     _______, CTRL_F1, C(KC_W), XXXXXXX, ALT_F4,  KC_F5,          S_D_MOD,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     ALT_TAB, _______, _______, DRGSCRL, A(KC_S), KC_F5,           S_D_RMOD,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
-     ALT_TAB, KC_LSFT, LT(_ONEHAND,KC_BTN2), SNIPING, KC_BTN1, KC_F6, DPI_MOD, KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-     KC_ENT,  C(KC_Z), C(KC_X), C(KC_C), C(KC_V), KC_F7,         DPI_RMOD, A(KC_S), KC_BTN1, KC_BTN2, SNIPING, XXXXXXX,
+     _______, CTRL_F1, C(KC_W), XXXXXXX, ALT_F4,  KC_F5,           S_D_MOD,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
+     XXXXXXX, _______, _______, DRGSCRL, A(KC_S), KC_F6,           S_D_RMOD,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
+     ALT_TAB, KC_LSFT, LT(_ONEHAND,KC_BTN2), SNIPING, KC_BTN1, KC_F7, DPI_MOD, KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     KC_ENT,  C(KC_Z), C(KC_X), C(KC_C), C(KC_V), C(KC_B),         DPI_RMOD, A(KC_S), KC_BTN1, KC_BTN2, SNIPING, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */_______, _______,
-                                         C(KC_TAB), _______,/*      */_______
+                                        C(KC_TAB), _______,/*      */TO(_BASE)
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 };
@@ -243,17 +243,38 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
      }
 #endif
 
-bool is_flow_tap_key(uint16_t keycode) {
-    if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
-        return false; // Disable Flow Tap on hotkeys.
-    }
-    switch (get_tap_keycode(keycode)) {
-        case KC_A ... KC_Z:
-        case KC_DOT:
-        case KC_COMM:
-        case KC_SCLN:
-        case KC_SLSH:
-            return true;
-    }
-    return false;
-}
+// bool is_flow_tap_key(uint16_t keycode) {
+//     if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
+//         return false; // Disable Flow Tap on hotkeys.
+//     }
+//     switch (get_tap_keycode(keycode)) {
+//         case KC_A ... KC_Z:
+//         case KC_DOT:
+//         case KC_COMM:
+//         case KC_SCLN:
+//         case KC_SLSH:
+//             return true;
+//     }
+//     return false;
+// }
+
+// uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, 
+//                            uint16_t prev_keycode) {
+//     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+//         switch (keycode) {
+//             case LSFT_T(KC_A):
+//             case LSFT_T(KC_F):
+//             case IPC(F):
+//             case THUMB_L2:
+//             case THUMB_R1:
+//             case THUMB_R2:
+//             case THUMB_R3:
+//               return 0; 
+
+//             default:
+//               return FLOW_TAP_TERM;  // Longer timeout otherwise.
+//         }
+//     }
+//     return 0;  // Disable Flow Tap.
+// }
+

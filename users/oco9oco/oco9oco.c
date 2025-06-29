@@ -462,7 +462,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (__TAPPED__ && __PRESSED__) {
                 tap_code16(KC_DEL);
             } else if (__PRESSED__) {
-                layer_move(_ONEHAND);
+                register_code16(SNIPING);
+            }else {
+                unregister_code16(SNIPING);
             }
             return false;
             break;
