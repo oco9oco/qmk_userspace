@@ -13,8 +13,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "oco9oco.h"
 
-bool is_alt_tab_active = false; // ADD this near the beginning of keymap.c
-uint16_t alt_tab_timer = 0;     // we will be using them soon.
+bool     is_alt_tab_active = false; // ADD this near the beginning of keymap.c
+uint16_t alt_tab_timer     = 0;     // we will be using them soon.
 
 void appcmd(uint16_t keycode) {
     tap_code(KC_APP);
@@ -22,7 +22,7 @@ void appcmd(uint16_t keycode) {
 }
 
 bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
+    switch (keycode) {
         case KC_Q:
         case KC_W:
         case KC_E:
@@ -37,7 +37,6 @@ bool get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record) {
 
 // process_record_user
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-
     switch (keycode) {
         case THUMB_L2:
         case THUMB_L3:
@@ -49,8 +48,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 cite_done    = true;
             } else {
                 if (num_in_prns) {
-                    if(prns_pressed){tap_code(KC_RGHT);}
-                    if(brkt_pressed){
+                    if (prns_pressed) {
+                        tap_code(KC_RGHT);
+                    }
+                    if (brkt_pressed) {
                         cite_done = true;
                         tap_code(KC_RGHT);
                     }
@@ -79,7 +80,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                         break;
                     case 1:
                         SEND_STRING("E05B");
-                        switch_cite = 2;  // case 2 추가되는 경우 switch_cite = 2;
+                        switch_cite = 2; // case 2 추가되는 경우 switch_cite = 2;
                         break;
                     case 2:
                         SEND_STRING("E06B");
@@ -136,48 +137,47 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         // HWP_CITE
         case HWP_MACRO:
-            if(__PRESSED__){
-                tap_code_delay(KC_F6,200);
+            if (__PRESSED__) {
+                tap_code_delay(KC_F6, 200);
 
                 register_code(KC_LALT);
-                    tap_code_delay(KC_O,200);
-                    tap_code_delay(KC_F,200);
+                tap_code_delay(KC_O, 200);
+                tap_code_delay(KC_F, 200);
                 unregister_code(KC_LALT);
 
-                tap_code_delay(KC_DOWN,100);
-                tap_code_delay(KC_DOWN,100);
+                tap_code_delay(KC_DOWN, 100);
+                tap_code_delay(KC_DOWN, 100);
                 tap_code(KC_ENT);
                 register_code(KC_LALT);
-                    tap_code_delay(KC_I,200);
+                tap_code_delay(KC_I, 200);
                 unregister_code(KC_LALT);
 
                 tap_code(KC_DOWN);
                 register_code(KC_LALT);
-                    tap_code_delay(KC_B,200);
-                    tap_code_delay(KC_Y,200);
-                    tap_code_delay(KC_A,200);
-                    tap_code_delay(KC_Y,200);
-                    tap_code_delay(KC_N,200);
-                    tap_code_delay(KC_D,200);
+                tap_code_delay(KC_B, 200);
+                tap_code_delay(KC_Y, 200);
+                tap_code_delay(KC_A, 200);
+                tap_code_delay(KC_Y, 200);
+                tap_code_delay(KC_N, 200);
+                tap_code_delay(KC_D, 200);
                 unregister_code(KC_LALT);
-                tap_code_delay(KC_ESC,200);
+                tap_code_delay(KC_ESC, 200);
 
                 register_code(KC_LCTL);
-                    tap_code_delay(KC_K,200);
-                    tap_code_delay(KC_O,200);
+                tap_code_delay(KC_K, 200);
+                tap_code_delay(KC_O, 200);
                 unregister_code(KC_LCTL);
 
                 register_code(KC_LALT);
-                    tap_code_delay(KC_N,200);
+                tap_code_delay(KC_N, 200);
                 unregister_code(KC_LALT);
 
-                tap_code_delay(KC_PGDN,100);
-                tap_code_delay(KC_END,100);
+                tap_code_delay(KC_PGDN, 100);
+                tap_code_delay(KC_END, 100);
 
                 register_code(KC_LALT);
-                    tap_code_delay(KC_D,200);
+                tap_code_delay(KC_D, 200);
                 unregister_code(KC_LALT);
-
             }
             break;
         case HWP_CITE:
@@ -260,7 +260,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // return false;
             // break;
 
-            case LT(_BASE,KC_ENT):
+        case LT(_BASE, KC_ENT):
             if (__TAPPED__ && __PRESSED__) {
                 tap_code(KC_ENT);
             } else if (__PRESSED__) {
@@ -273,34 +273,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case IPC(A):
             if (__TAPPED__ && __PRESSED__) {
-                if(!cite_done){tap_code(KC_BSPC);}
-                    switch (switch_cite){
+                if (!cite_done) {
+                    tap_code(KC_BSPC);
+                }
+                switch (switch_cite) {
                     case 0:
-                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_A) SS_TAP(X_LNG1));
-                    switch_cite = 1;
-                    break;
+                        SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_A) SS_TAP(X_LNG1));
+                        switch_cite = 1;
+                        break;
                     case 1:
-                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_B) SS_TAP(X_LNG1));
-                    switch_cite = 2;
-                    break;
+                        SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_B) SS_TAP(X_LNG1));
+                        switch_cite = 2;
+                        break;
                     case 2:
-                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_C) SS_TAP(X_LNG1));
-                    switch_cite = 3;
-                    break;
+                        SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_C) SS_TAP(X_LNG1));
+                        switch_cite = 3;
+                        break;
                     case 3:
-                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_D) SS_TAP(X_LNG1));
-                    switch_cite = 4;
-                    break;
+                        SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_D) SS_TAP(X_LNG1));
+                        switch_cite = 4;
+                        break;
                     case 4:
-                    SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_E) SS_TAP(X_LNG1));
-                    switch_cite = 0;
-                    break;
-                    }
+                        SEND_STRING(SS_TAP(X_LNG1) SS_TAP(X_E) SS_TAP(X_LNG1));
+                        switch_cite = 0;
+                        break;
+                }
             } else if (__PRESSED__) {
                 register_code(KC_LSFT);
             } else {
                 unregister_code(KC_LSFT);
-                cite_done=false;
+                cite_done = false;
             }
             return false;
             break;
@@ -359,32 +361,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-        case SFT_CAPS:
-            if (__TAPPED__ && __PRESSED__) {
-                tap_code(KC_LNG1);
-            } else if (__PRESSED__) {
-                tap_code(KC_CAPS);
-            } else {
-                // DO NOTHING ON RELEASE
-            }
-            return false;
-            break;
-
-
-
-        
-        
 #ifdef CHARYBDIS_CONFIG_SYNC
         case DRG_TOG:
             if (__PRESSED__) {
                 register_code(KC_F15);
-                } else {
+            } else {
                 unregister_code(KC_F15);
-                }
+            }
             return true;
             break;
 #endif
-
 
             // appcmd function
         case JOINTBL:
@@ -428,7 +414,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(KC_DEL);
             } else if (__PRESSED__) {
                 register_code16(SNIPING);
-            }else {
+            } else {
                 unregister_code16(SNIPING);
             }
             return false;
@@ -469,13 +455,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("@IPC");
             }
             break;
-            // case SLSH_LL:
-            //     if (__PRESSED__) {
-            //         SEND_STRING(SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_SLSH) SS_TAP(X_RGHT) SS_TAP(X_RGHT));
-            //     }
-            //     break;
+
         case NAV_NS:
-            if(__PRESSED__){
+            if (__PRESSED__) {
                 tap_code16(LCA(KC_J));
                 tap_code16(LCA(KC_H));
             }
@@ -493,7 +475,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case USR_LNG:
-            if (__TAPPED__  && __PRESSED__) {
+            if (__PRESSED__ && __TAPPED__) {
                 tap_code(KC_LNG1);
             } else if (__PRESSED__) {
                 register_code(KC_LNG2);
@@ -503,26 +485,48 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-        case LT(_ONEHAND,KC_BTN2):
+        case OH(KC_BTN2):
             if (__TAPPED__ && __PRESSED__) {
                 tap_code(KC_BTN2);
             } else if (__PRESSED__) {
+                layer_move(_BASE);
                 register_code(KC_LALT);
             } else {
                 unregister_code(KC_LALT);
+                layer_move(_ONEHAND);
+            }
+            return false;
+            break;
+
+        case G_LNG:
+            if (__TAPPED__ && __PRESSED__) {
+                tap_code(KC_LNG2);
+            } else if (__PRESSED__) {
+                register_code(KC_LGUI);
+            } else {
+                unregister_code(KC_LGUI);
+            }
+            return false;
+            break;
+
+        case SFT_CAPS:
+            if (__TAPPED__ && __PRESSED__) {
+                tap_code(KC_CAPS);
+            } else if (__PRESSED__) {
+                tap_code(KC_LNG1);
+            } else {
+                // DO NOTHING ON RELEASE
             }
             return false;
             break;
     }
-
-return true;
+    return true;
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-
         // case THUMB_L2:
-            // return TAPPING_TERM - 50;
+        // return TAPPING_TERM - 50;
         // case SFTT_A:
         // case SFTT_F:
         // case CTLT_D:
@@ -553,7 +557,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // }
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-//        case LSFT_T(KC_W):
+            //        case LSFT_T(KC_W):
         case THUMB_L1:
         case THUMB_L2:
         case THUMB_L3:
@@ -565,7 +569,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         // case SFTT_F:
         case IPC(A):
         case IPC(S):
-        case IPC_D_: 
+        case IPC_D_:
         case IPC(F):
         case IPC(Z):
             return true;
@@ -574,14 +578,13 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-
 void matrix_scan_user(void) { // The very important timer.
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 2000) {
-      unregister_code(KC_LALT);
-      is_alt_tab_active = false;
+    if (is_alt_tab_active) {
+        if (timer_elapsed(alt_tab_timer) > 2000) {
+            unregister_code(KC_LALT);
+            is_alt_tab_active = false;
+        }
     }
-  }
 }
 #ifdef CHORDAL_HOLD
 // bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
@@ -598,27 +601,3 @@ void matrix_scan_user(void) { // The very important timer.
 // return get_chordal_hold_default(tap_hold_record, other_record);
 // }
 #endif
-// charybdis trackball angular alignment calibration(floating point)
-// This code rotates the mouse report by 15 degrees counter-clockwise.
-
-
-// #include "math.h"
-
-// report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
-//     report_mouse_t new_report = mouse_report;
-
-//     // 15도 회전 변환 공식 (반시계 방향)
-//     // x' =  cos(15°) * x - sin(15°) * y
-//     // y' =  sin(15°) * x + cos(15°) * y
-
-//     float old_x = (float)mouse_report.x;
-//     float old_y = (float)mouse_report.y;
-
-//     float new_x =  COS15 * old_x - SIN15 * old_y;
-//     float new_y =  SIN15 * old_x + COS15 * old_y;
-
-//     new_report.x = (int8_t)roundf(new_x);
-//     new_report.y = (int8_t)roundf(new_y);
-
-//     return new_report;
-// }

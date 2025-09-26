@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE_NOMOD] = LAYOUT_crkbd_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     KC_ESC,  __________________QWERTY_L1________________,                            __________________QWERTY_R1________________, _______,
-    SFT_CAPS,__________________QWERTY_L2________________,                           __________________QWERTY_R2________________, KC_QUOT,
+    SFT_CAPS,__________________QWERTY_L2________________,                            __________________QWERTY_R2________________, KC_QUOT,
     _______, __________________QWERTY_L3________________,                            __________________QWERTY_HOME_R3___________, KC_BSLS,
                                         THUMB_L1, THUMB_L2, THUMB_L3,       TH_BK_R1, THUMB_R3, THUMB_R2
 ),
@@ -33,17 +33,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
   [_IPC] = LAYOUT_crkbd_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    A(KC_F4), C(KC_F1), SCRNSHOT, G(KC_E), CLASS_A, JIGGLE,               KC_GRV,  _________NUM_789_________, _______, KC_PLUS,
+    A(KC_F4), C(KC_F1), SCRNSHOT, G(KC_E), CLASS_A, XXXXXXX,                KC_GRV,  _________NUM_789_________, _______, KC_PLUS,
     TO(_DOOM), IPC(A),   IPC(S), _IPC_MIN, IPC(F), KC_DOT,                  AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
-    XXXXXXX, IPC(Z),   HWP_CITE, IPC(C),  KC_EQL,  KC_BSLS,                  HWP_MACRO, _________NUM_123_________, _______, KC_PIPE,
+    XXXXXXX, IPC(Z),   HWP_CITE, IPC(C),  KC_EQL,  KC_BSLS,                 HWP_MACRO, _________NUM_123_________, _______, KC_PIPE,
                           TO(_BASE_SWAP), _______, TO(_BASE),       KC_LPRN, KC_RPRN, LT(_NAV,KC_0)
 ),
   [_NUM] = LAYOUT_crkbd_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    _______, KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,
-    _______, XXXXXXX, KC_L,    KC_K,    KC_J,    KC_H,                               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_COLN, KC_DQUO,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_M,    KC_N,                               KC_B,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PIPE,
-                                        _______, _______, _______,          _______, _______, _______
+    A(KC_F4), C(KC_F1), SCRNSHOT, G(KC_E), CLASS_A, JIGGLE,               KC_GRV,  _________NUM_789_________, _______, KC_PLUS,
+    TO(_DOOM), IPC(A),   IPC(S), _IPC_MIN, IPC(F), KC_DOT,                  AT_IPC,  _________NUM_456_________, KC_COLN, KC_DQUO,
+    XXXXXXX, IPC(Z),   HWP_CITE, IPC(C),  KC_EQL,  KC_BSLS,                  HWP_MACRO, _________NUM_123_________, _______, KC_PIPE,
+                          TO(_BASE_SWAP), _______, TO(_BASE),       KC_LPRN, LT(_NAV,KC_0), KC_RPRN
     ),
   [_NAV] = LAYOUT_split_3x6_3(          //Navigations
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|

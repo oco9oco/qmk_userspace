@@ -57,10 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     KC_ESC, KC_WH_L, KC_BTN2, KC_BTN3, KC_BTN1, KC_WH_R,          __________________NUMROW_R_________________, KC_MINS,
-     KC_TAB, __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
-     SFT_CAPS, __________________QWERTY_SACS_L2___________,          __________________QWERTY_R2________________, KC_QUOT,
-     KC_LGUI,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
+     KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                         __________________NUMROW_R_________________, KC_MINS,
+     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                         __________________QWERTY_R1________________, KC_EQL,
+     SFT_CAPS, __________________QWERTY_SACS_L2___________,        __________________QWERTY_R2________________, KC_QUOT,
+     G_LNG,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
                               TG(_ONEHAND),  TG(_BASE_NOMOD),      THUMB_R1
@@ -146,9 +146,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     KC_TAB,  XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_F6,           S_D_RMOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_MAKE,
-     ALT_TAB, KC_LSFT, KC_BTN2, DRGSCRL, KC_BTN1, KC_F7,           DPI_MOD,  KC_ENT,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-     KC_ENT,  C(KC_Z), C(KC_X), C(KC_C), C(KC_V), C(KC_B),         DPI_RMOD, XXXXXXX, KC_BTN1, KC_BTN2, SNIPING, XXXXXXX,
+     KC_TAB,  XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_1)), C(A(KC_2)), C(A(KC_3)), XXXXXXX, QK_MAKE,
+     _______, KC_LSFT, OH(KC_BTN2), KC_BTN3, KC_BTN1, KC_F7,       DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX,
+     KC_ENT,  XXXXXXX, XXXXXXX, DRGSCROLL, KC_BTN3, C(KC_B),         DPI_RMOD, KC_ENT, KC_BTN1, KC_BTN2, SNIPING, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */_______, _______,
                                          KC_TRNS, _______,/*      */TO(_BASE)
@@ -207,15 +207,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      bool now_on = layer_state_cmp(state, _ONEHAND);    
      if (now_on && !mouse_layer_on) {
           // 마우스 레이어 진입 시
-          register_code(KC_LCTL);
-          tap_code(KC_F9);
-          unregister_code(KC_LCTL);
+          // register_code(KC_LCTL);
+          // tap_code(KC_F9);
+          // unregister_code(KC_LCTL);
      } else 
      if (!now_on && mouse_layer_on) {
           // 마우스 레이어 탈출 시
-          register_code(KC_LCTL);
-          tap_code(KC_F9);
-          unregister_code(KC_LCTL);
+          // register_code(KC_LCTL);
+          // tap_code(KC_F9);
+          // unregister_code(KC_LCTL);
      } 
      mouse_layer_on = now_on;
      return state;

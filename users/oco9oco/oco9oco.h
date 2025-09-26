@@ -53,6 +53,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define F8_8 LT(_BASE, KC_8)
 #define F9_9 LT(_BASE, KC_9)
 #define F0_0 LT(_BASE, KC_0)
+
+#define OH(x) LT(_ONEHAND,(x))
+#define G_LNG LT(_BASE, KC_LNG2)
+#define USR_LNG LT(_BASE, KC_LNG1)
 /* REGIONS
 
 N N N N N N E  E N N N N N N
@@ -118,7 +122,7 @@ Z X C V B  N M , . /
 #define _NUM_MIN LCTL_T(KC_MINS)
 #define IME_CHG G(C(KC_SPC))
 #define INV_DSP G(C(KC_C))
-#define USR_LNG LT(_BASE, KC_LNG1)
+
 //#define DRGMT LT(_ONEHAND, KC_F22)
 #define BULLET_U C(S(KC_LBRC))
 #define BULLET_D C(S(KC_RBRC))
