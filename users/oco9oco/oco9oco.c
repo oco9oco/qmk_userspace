@@ -485,18 +485,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
             break;
 
-        case OH(KC_BTN2):
-            if (__TAPPED__ && __PRESSED__) {
-                tap_code(KC_BTN2);
-            } else if (__PRESSED__) {
-                layer_move(_BASE);
-                register_code(KC_LALT);
-            } else {
-                unregister_code(KC_LALT);
-                layer_move(_ONEHAND);
-            }
-            return false;
-            break;
+        // case OH(MS_BTN2):
+        //     if (__TAPPED__ && __PRESSED__) {
+        //         tap_code(MS_BTN2);
+        //     } else if (__PRESSED__) {
+        //         layer_move(_BASE);
+        //         register_code(KC_LALT);
+        //     } else {
+        //         unregister_code(KC_LALT);
+        //         layer_move(_ONEHAND);
+        //     }
+        //     return false;
+        //     break;
 
         case G_LNG:
             if (__TAPPED__ && __PRESSED__) {

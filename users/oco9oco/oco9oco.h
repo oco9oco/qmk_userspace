@@ -240,12 +240,12 @@ bool qwert;
 #define __NAV_R2 KC_INS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
 #define __NAV_R3 KC_APP, KC_HOME, KC_PGDN, KC_PGUP, KC_END
 
-#define __MOUSE_L1 XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX
+#define __MOUSE_L1 XXXXXXX, MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX
 #define __MOUSE_L2 KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX
 #define __MOUSE_L3 UNDO, CUT, COPY, PASTE, BOLDFACE
 
 #define __MOUSE_R1 XXXXXXX, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX
-#define __MOUSE_R2 KC_INS, KC_ACL0, KC_BTN1, KC_BTN2, KC_BTN3
+#define __MOUSE_R2 KC_INS, KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3
 #define __MOUSE_R3 KC_APP, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
 
 #define __FUNC_L1 RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX
@@ -345,7 +345,3 @@ enum layer_index {
     _ONEHAND, //
     _SETTINGS,
 };
-
-//트랙볼 좔표계 보정용 상수
-static const float COS15 = 0.965925826f;  // cos(15°)
-static const float SIN15 = 0.258819045f;  // sin(15°)

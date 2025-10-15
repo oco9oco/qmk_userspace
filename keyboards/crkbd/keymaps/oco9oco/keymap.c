@@ -63,15 +63,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
   [_MOUSE] = LAYOUT_split_3x6_3(       //Mouse keys
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    KC_U,    C(KC_F1), KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX,                              XXXXXXX,KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX,  RESET,
-    KC_P,    KC_H,     KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                              KC_INS, KC_ACL0, KC_BTN1, KC_BTN2, KC_BTN3,  KC_ENT,
+    KC_U,    C(KC_F1), MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX,                              XXXXXXX,KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX,  RESET,
+    KC_P,    KC_H,     KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                              KC_INS, KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3,  KC_ENT,
     KC_X,    XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                KC_APP, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  KC_DEL,
                                         _______, _______, _______,          _______, _______, _______
     ),
   [_ONEHAND] = LAYOUT_split_3x6_3( //Trackball Manipulation
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-    KC_ESC,  KC_WH_U, KC_BTN2, KC_UP,   KC_BTN1, ALT_F4,                             XXXXXXX, G(KC_7), G(KC_8), G(KC_9), XXXXXXX, XXXXXXX,
-    XXXXXXX, KC_WH_D, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,                            XXXXXXX, G(KC_4), G(KC_5), G(KC_6), XXXXXXX, XXXXXXX,
+    KC_ESC,  MS_WH_U, MS_BTN2, KC_UP,   MS_BTN1, ALT_F4,                             XXXXXXX, G(KC_7), G(KC_8), G(KC_9), XXXXXXX, XXXXXXX,
+    XXXXXXX, MS_WH_D, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,                            XXXXXXX, G(KC_4), G(KC_5), G(KC_6), XXXXXXX, XXXXXXX,
     KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                            XXXXXXX, G(KC_1), G(KC_2), G(KC_3), XXXXXXX, XXXXXXX,
                                         KC_DEL,  KC_SPC, KC_ENT,            XXXXXXX, XXXXXXX, XXXXXXX
     )
@@ -93,7 +93,7 @@ const uint16_t PROGMEM qw_combo[] = {KC_W,    KC_E,    COMBO_END};
 const uint16_t PROGMEM pe_combo[] = {KC_P,    KC_EQL,  COMBO_END};
 const uint16_t PROGMEM sq_combo[] = {KC_SCLN, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM os_combo[] = {KC_BSLS, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM oh_combo[] = {KC_BTN2, KC_UP,   COMBO_END};
+const uint16_t PROGMEM oh_combo[] = {MS_BTN2, KC_UP,   COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_ONEHAND]               = COMBO(qw_combo, TO(_ONEHAND)),

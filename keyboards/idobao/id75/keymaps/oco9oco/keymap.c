@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_MOUSE] = LAYOUT_ID75_wrapper(
    _______,    C(KC_F1),_______, _______, A(KC_F4),KC_F5,   _______, _______, _______,  _______, _______, _______, _______, _______,      RESET,
-    KC_U,      XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, _______, _______, _______,  XXXXXXX, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,
-    KC_P,      KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, _______, _______, _______,  KC_INS,  KC_ACL0, KC_BTN1, KC_BTN2, KC_BTN3,      XXXXXXX,
+    KC_U,      XXXXXXX, MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX, _______, _______, _______,  XXXXXXX, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,
+    KC_P,      KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, _______, _______, _______,  KC_INS,  KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3,      XXXXXXX,
     KC_X,      UNDO,    CUT,     COPY,    PASTE,   BOLDFACE,_______, _______, _______,  KC_APP,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,      XXXXXXX,
     _______,   _______, _______, KC_LCTL, KC_SPC,  KC_ENT,  _______, _______, _______,  KC_TRNS, _______, _______, _______, _______,      _______
 ),

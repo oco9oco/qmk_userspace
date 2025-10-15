@@ -78,8 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = LAYOUT_moonlander_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     _______, CTRL_F1, KC_F2,   KC_F3,   ALT_F4,  KC_F5,   XXXXXXX,          XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
-    KC_U,    XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_P,    KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,          XXXXXXX, KC_ACL2,  KC_ACL0, KC_BTN1, KC_BTN2, KC_BTN3, KC_ENT,
+    KC_U,    XXXXXXX, MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_P,    KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,          XXXXXXX, KC_ACL2,  KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
     KC_X,    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, BOLDFACE,                           KC_APP,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
     _______, _______, _______, _______, _______,          TO_BASE,          _______,          _______, _______, _______, _______, _______,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -100,8 +100,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_moonlander_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     KC_ESC,  C(KC_F1), XXXXXXX, XXXXXXX, A(KC_F4), XXXXXXX,   XXXXXXX,      XXXXXXX, _______, _______, _______, _______, _______, _______,
-    KC_TAB,  C(KC_WH_U), KC_BTN2, KC_UP,   KC_BTN1, SCRNSHOT, XXXXXXX,      XXXXXXX, BRKT,    KC_WH_D, KC_MS_U, KC_WH_U, _______, _______,
-    A(KC_6), C(KC_WH_D), KC_LEFT, KC_DOWN, KC_RGHT, PDF_HL,   XXXXXXX,      XXXXXXX, PRNS,    KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
+    KC_TAB,  C(MS_WH_U), MS_BTN2, KC_UP,   MS_BTN1, SCRNSHOT, XXXXXXX,      XXXXXXX, BRKT,    MS_WH_D, KC_MS_U, MS_WH_U, _______, _______,
+    A(KC_6), C(MS_WH_D), KC_LEFT, KC_DOWN, KC_RGHT, PDF_HL,   XXXXXXX,      XXXXXXX, PRNS,    KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
     KC_LSFT, UNDO,    A(KC_7), A(KC_8), PASTE,   KC_ENT,                             _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,              TO_BASE,      _______,          _______, _______, _______, KC_LCTL, _______,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -124,7 +124,7 @@ const uint16_t PROGMEM qw_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM hl_combo[] = {KC_H, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM ee_combo[] = {KC_ESC, KC_EQL, COMBO_END};
 const uint16_t PROGMEM os_combo[]= {KC_BSLS, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM oh_combo[]= {KC_BTN2, KC_UP, COMBO_END};
+const uint16_t PROGMEM oh_combo[]= {MS_BTN2, KC_UP, COMBO_END};
 
 combo_t key_combos[] = {
     [COMBO_ONEHAND]   = COMBO(qw_combo, TO(_ONEHAND)),
