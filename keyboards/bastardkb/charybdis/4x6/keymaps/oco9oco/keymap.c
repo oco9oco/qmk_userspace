@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_5,    KC_1,    KC_2,    KC_3,    KC_4,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX, //  
     KC_TAB,  KC_T,    KC_Q,    KC_W,    KC_E,    KC_R,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    XXXXXXX, //
     KC_LCTL, KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,             KC_H,    MS_BTN3, MS_WHLU, KC_L,    KC_SCLN, DPI_MOD, //
-    KC_P,    KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,             KC_N,    MS_WHLD, MS_BTN1, MS_BTN2, KC_SLSH, DPI_RMOD,//
+    KC_ENT,  KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,             KC_N,    MS_WHLD, MS_BTN1, MS_BTN2, KC_SLSH, DPI_RMOD,//
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                KC_Y,    KC_SPC,  KC_F,             KC_ENT, THUMB_R3,// TRACK //
                                         KC_I,    KC_O,             TO(_BASE)        // BALL  //
@@ -146,9 +146,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     KC_TAB,  XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_1)), C(A(KC_2)), C(A(KC_3)), XXXXXXX, QK_MAKE,
-     _______, KC_LSFT, MS_BTN2, MS_BTN3, MS_BTN1, KC_F7,       DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, XXXXXXX,
-     KC_ENT,  XXXXXXX, XXXXXXX, DRGSCRL, MS_BTN3, C(KC_B),         DPI_RMOD, KC_ENT, MS_BTN1, MS_BTN2, SNIPING, XXXXXXX,
+     KC_TAB,  XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
+     _______, KC_LSFT, MS_BTN2, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
+     KC_ENT,  XXXXXXX, XXXXXXX, DRGSCRL, MS_BTN3, XXXXXXX,         DPI_RMOD, KC_ENT,  MS_BTN1, MS_BTN2, SNIPING, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */_______, _______,
                                          KC_TRNS, _______,/*      */TO(_BASE)
