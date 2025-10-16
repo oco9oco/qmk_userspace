@@ -73,8 +73,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = LAYOUT_kimiko_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     _______, CTRL_F1, KC_F2,   KC_F3,   ALT_F4,  KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
-    KC_U,    XXXXXXX, MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX,                            XXXXXXX,  KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_P,    KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,                            XXXXXXX,  KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
+    KC_U,    XXXXXXX, MS_WHLD, MS_UP, MS_WHLU, XXXXXXX,                            XXXXXXX,  MS_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_P,    KC_LSFT, MS_LEFT, MS_DOWN, MS_RGHT, XXXXXXX,                            XXXXXXX,  MS_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
     KC_X,    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, BOLDFACE,TO_BASE,     TO(_ONEHAND), KC_APP,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
                       _______, _______, KC_LCTL, KC_SPC,  KC_ENT,           KC_TRNS, _______, _______, _______, _______
@@ -93,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_kimiko_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     KC_ESC,  C(KC_F1),XXXXXXX, XXXXXXX, A(KC_F4),XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_TAB,  MS_WH_U, MS_BTN2, KC_UP,   MS_BTN1, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, MS_WH_D, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_TAB,  MS_WHLU, MS_BTN2, KC_UP,   MS_BTN1, XXXXXXX,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, MS_WHLD, KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC,                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,  TO_BASE,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
                       KC_LGUI, KC_LALT, KC_LCTL, KC_SPC,  KC_ENT,         TO(_MOUSE),_______, _______, _______, _______
@@ -102,8 +102,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_SETTINGS] = LAYOUT(
 //|-------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-   _______,     C(MS_WH_D), XXXXXXX, A(KC_0), A(KC_F4),XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,
-   KC_TAB,/*|*/ C(MS_WH_U), A(KC_4), A(KC_5), A(KC_6), KC_X,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   _______,     C(MS_WHLD), XXXXXXX, A(KC_0), A(KC_F4),XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,
+   KC_TAB,/*|*/ C(MS_WHLU), A(KC_4), A(KC_5), A(KC_6), KC_X,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    KC_ENT,/*|*/ SCRNSHOT,A(KC_1), A(KC_2), A(KC_3), PDF_HL,                         RGB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    KC_SPC,/*|*/ XXXXXXX, A(KC_7), A(KC_8), A(KC_9), KC_P, TO_BASE,         TO_BASE, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, KC_LSFT, XXXXXXX,
 //|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|

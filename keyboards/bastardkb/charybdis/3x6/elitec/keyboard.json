@@ -1,13 +1,11 @@
 {
     "build": {
-        "lto": true,
-        "firmware_format" : "uf2"
-    },   
-    
-    "development_board" : "promicro_rp2040",
+        "lto": true
+    },
+    "development_board": "elite_c",
     "matrix_pins": {
         "cols": ["F6", "F5", "B6", "D7", "E6", "B4"],
-        "rows": ["F4", "F7", "C6", "D4", "B5"]
+        "rows": ["F7", "C6", "D4", "B5"]
     },
     "pin_compatible": "elite_c",
     "split": {
@@ -17,7 +15,5 @@
     },
     "ws2812": {
         "pin": "D3"
-    },
-    "processor": "RP2040",
-    "bootloader": "rp2040"
+    }
 }

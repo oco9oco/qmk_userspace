@@ -78,8 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MOUSE] = LAYOUT_moonlander_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     _______, CTRL_F1, KC_F2,   KC_F3,   ALT_F4,  KC_F5,   XXXXXXX,          XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  RESET,
-    KC_U,    XXXXXXX, MS_WH_D, KC_MS_U, MS_WH_U, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_P,    KC_LSFT, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,          XXXXXXX, KC_ACL2,  KC_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
+    KC_U,    XXXXXXX, MS_WHLD, MS_UP, MS_WHLU, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    KC_P,    KC_LSFT, MS_LEFT, MS_DOWN, MS_RGHT, XXXXXXX, XXXXXXX,          XXXXXXX, MS_ACL2,  MS_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
     KC_X,    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, BOLDFACE,                           KC_APP,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
     _______, _______, _______, _______, _______,          TO_BASE,          _______,          _______, _______, _______, _______, _______,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
@@ -100,8 +100,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_moonlander_wrapper(
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
     KC_ESC,  C(KC_F1), XXXXXXX, XXXXXXX, A(KC_F4), XXXXXXX,   XXXXXXX,      XXXXXXX, _______, _______, _______, _______, _______, _______,
-    KC_TAB,  C(MS_WH_U), MS_BTN2, KC_UP,   MS_BTN1, SCRNSHOT, XXXXXXX,      XXXXXXX, BRKT,    MS_WH_D, KC_MS_U, MS_WH_U, _______, _______,
-    A(KC_6), C(MS_WH_D), KC_LEFT, KC_DOWN, KC_RGHT, PDF_HL,   XXXXXXX,      XXXXXXX, PRNS,    KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
+    KC_TAB,  C(MS_WHLU), MS_BTN2, KC_UP,   MS_BTN1, SCRNSHOT, XXXXXXX,      XXXXXXX, BRKT,    MS_WHLD, MS_UP, MS_WHLU, _______, _______,
+    A(KC_6), C(MS_WHLD), KC_LEFT, KC_DOWN, KC_RGHT, PDF_HL,   XXXXXXX,      XXXXXXX, PRNS,    MS_LEFT, MS_DOWN, MS_RGHT, _______, _______,
     KC_LSFT, UNDO,    A(KC_7), A(KC_8), PASTE,   KC_ENT,                             _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,              TO_BASE,      _______,          _______, _______, _______, KC_LCTL, _______,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
