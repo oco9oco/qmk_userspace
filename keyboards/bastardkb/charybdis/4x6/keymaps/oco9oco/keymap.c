@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      G_LNG,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
-                              TG(_ONEHAND),  TG(_BASE_NOMOD),      THUMB_R1
+                              TG(_BASE_NOMOD), KC_LNG1,      THUMB_R1
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 
@@ -85,10 +85,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ALT_F4,  C(KC_F1),XXXXXXX, SCRNSHOT,INV_DSP, TO(_ONEHAND),     XXXXXXX,   KC_LBRC, KC_RBRC, KC_LPRN, KC_RPRN, _______,
      ALT_TAB, XXXXXXX, IME_CHG, CLASS_A, XXXXXXX, XXXXXXX,          KC_GRV,    _________NUM_789_________, XXXXXXX, _______,
      _______, IPC(A),  IPC(S),  IPC_D_,  IPC(F),  KC_DOT,           AT_IPC,    _________NUM_456_________, KC_COLN, KC_DQUO,
-     _______, IPC(Z), HWP_CITE, IPC(C),  KC_EQL,  KC_ENT,           HWP_MACRO, _________NUM_123_________, _______, KC_PIPE,
+     _______, IPC(Z), HWP_CITE, IPC(C),  KC_EQL,  KC_ENT,           KC_LNG1,   _________NUM_123_________, _______, KC_PIPE,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, KC_TRNS, _______,/*      */_______, LT(_NAV, KC_0),
-                                         XXXXXXX, TO(_DOOM),/*      */IME_CHG
+                                         XXXXXXX, TO(_DOOM),/*      */HWP_MACRO
 //                            ╰───────────────────────────╯       ╰──────────────────╯
 ),
 
@@ -146,9 +146,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     KC_TAB,  XXXXXXX, XXXXXXX, SNIPING, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
-     _______, KC_LSFT, MS_BTN2, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
-     KC_ENT,  XXXXXXX, XXXXXXX, DRGSCRL, MS_BTN3, XXXXXXX,         DPI_RMOD, KC_ENT,  MS_BTN1, MS_BTN2, SNIPING, XXXXXXX,
+     KC_TAB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
+     _______, KC_LSFT, SNIPING, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
+     KC_ENT,  KC_LGUI, KC_LALT, KC_LCTL, MS_BTN2, XXXXXXX,         DPI_RMOD, SNIPING, MS_BTN1, DRGSCRL, MS_BTN2, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */_______, _______,
                                          KC_TRNS, _______,/*      */TO(_BASE)
@@ -207,15 +207,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      bool now_on = layer_state_cmp(state, _ONEHAND);    
      if (now_on && !mouse_layer_on) {
           // 마우스 레이어 진입 시
-          // register_code(KC_LCTL);
-          // tap_code(KC_F9);
-          // unregister_code(KC_LCTL);
+          tap_code(KC_F14);
      } else 
      if (!now_on && mouse_layer_on) {
           // 마우스 레이어 탈출 시
-          // register_code(KC_LCTL);
-          // tap_code(KC_F9);
-          // unregister_code(KC_LCTL);
+          tap_code(KC_F14);
      } 
      mouse_layer_on = now_on;
      return state;

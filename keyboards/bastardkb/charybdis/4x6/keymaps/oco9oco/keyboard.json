@@ -1,8 +1,0 @@
-﻿{
-    "build":{
-        "firmware_format" : "uf2"
-    },
-    "development_board" : "promicro_rp2040",
-    "processor": "RP2040",
-    "bootloader": "rp2040"
-}
