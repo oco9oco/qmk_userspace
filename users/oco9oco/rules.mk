@@ -2,7 +2,7 @@ SRC+=oco9oco.c
 
 
 
-CONSOLE_ENABLE = yes
+CONSOLE_ENABLE = no
 COMMAND_ENABLE = no
 
 KEY_OVERRIDE_ENABLE = no

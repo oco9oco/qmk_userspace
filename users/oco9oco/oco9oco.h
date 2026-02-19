@@ -29,6 +29,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // MOD-TAP ALIASES
 #define GUIT_A LGUI_T(KC_A)
 #define SFTT_A LSFT_T(KC_A)
+// #define AT(z) LALT_T(KC_#z)
+// #define CT(z) LCTL_T(KC_#z)
+// #define ST(z) LSFT_T(KC_#z)
+// #define GT(z) LGUI_T(KC_#z)
+
 #define SFTT_Z LSFT_T(KC_Z)
 #define GUIT_Z LGUI_T(KC_Z)
 #define ALTT_S LALT_T(KC_S)
@@ -92,7 +97,7 @@ Z X C V B  N M , . /
 #define __________________QWERTY_L3_SFTZ___________ SFTT_Z, KC_X, KC_C, KC_V, KC_B
 #define __________________QWERTY_GUIZ_L3___________ LGUI_T(KC_Z), KC_X, KC_C, KC_V, KC_B
 
-#define __________________QWERTY_L2_SFTA___________ SFTT_A, KC_S, KC_D, SFTT_F, KC_G
+#define __________________QWERTY_L2_SFTA___________ SFTT_A, KC_S, KC_D, KC_F, KC_G
 #define __________________QWERTY_L3________________ KC_Z, KC_X, KC_C, KC_V, KC_B
 //     |--------|--------|--------|--------|--------|
 #define __________________QWERTY_R1________________ KC_Y, KC_U, KC_I, KC_O, KC_P
@@ -225,7 +230,7 @@ bool qwert;
 #define __ALT_R3 __________________QWERTY_R3________________
 
 #define __IPC_L1 HAEN_B, HAEN_C, HAEN_E, HAEN_D, KC_SLSH
-#define __IPC_L2 IPC(A), IPC(S), IPC_MIN, IPC(F), KC_DOT
+#define __IPC_L2 IPC(A), IPC(S), _IPC_MIN, IPC(F), KC_DOT
 #define __IPC_L3 IPC(Z), BRKT, IPC(C), KC_EQL, KC_COLN
 
 #define __IPC_R1 KC_LBRC, _________NUM_789_________, KC_RBRC
@@ -332,11 +337,13 @@ enum custom_keycodes {
 };
 
 enum layer_index {
-    _BASE = 0,       // QWERTY with home row mods
+    _BASE = 0,     
     _BASE_NOMOD,     // Just QWERTY
     _BASE_SWAP,     // BASE WITH RIGHT THUMB SWAP
     _DOOM,          // DOOM ETERNAL
+    _ARC,        
     _FACTORIO,
+    _FACT_ALT,
     _NAV,            // Arrows
     _IPC,            //
     _NUM,

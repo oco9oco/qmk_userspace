@@ -542,6 +542,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case NAV(D):
         case NAV(F):
             return TAPPING_TERM - 50;
+        case LALT_T(KC_X):
+        case CTLT_D:
+            return TAPPING_TERM + 50;
         default:
             return TAPPING_TERM;
     }

@@ -17,12 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "oco9oco.h" //look for users/oco9oco/
 
+//qmk compile -j 0 -kb bastardkb/charybdis/4x6/elitec -km oco9oco -e CONVERT_TO=rp2040_ce
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//clang-format off
 
-/*
-  [LAYER_BASE] = LAYOUT(
+
+     //clang-format off
+     
+     /*
+     [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -60,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                         __________________NUMROW_R_________________, KC_MINS,
      KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                         __________________QWERTY_R1________________, KC_EQL,
      SFT_CAPS, __________________QWERTY_SACS_L2___________,        __________________QWERTY_R2________________, KC_QUOT,
-     G_LNG,  KC_Z,    KC_X,     KC_C,     KC_V,     KC_B,          __________________QWERTY_HOME_R3___________, KC_BSLS,
+     G_LNG,  KC_Z, LALT_T(KC_X), KC_C, KC_V, KC_B,                         __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
                               TG(_BASE_NOMOD), KC_LNG1,      THUMB_R1
@@ -72,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC,  MS_WHLL, MS_BTN2, MS_BTN3, MS_BTN1, MS_WHLR,          __________________NUMROW_R_________________, KC_MINS,
      ALT_TAB, __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
      _______, __________________QWERTY_L2_SFTA___________,          __________________QWERTY_R2________________, KC_QUOT,
-     _______, __________________QWERTY_L3________________,          __________________QWERTY_HOME_R3___________, KC_BSLS,
+     _______, KC_Z, LALT_T(KC_X),  KC_C,  KC_V,   KC_B,             __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
                                         _______, KC_TRNS,          THUMB_R1
@@ -99,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,             KC_H,    MS_BTN3, MS_WHLU, KC_L,    KC_SCLN, DPI_MOD, //
     KC_ENT,  KC_B,    KC_Z,    KC_X,    KC_C,    KC_V,             KC_N,    MS_WHLD, MS_BTN1, MS_BTN2, KC_SLSH, DPI_RMOD,//
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
-                               KC_Y,    KC_SPC,  KC_F,             KC_ENT, THUMB_R3,// TRACK //
+                         KC_LALT,    KC_SPC,  KC_LCTL,             KC_ENT, THUMB_R3,// TRACK //
                                         KC_I,    KC_O,             TO(_BASE)        // BALL  //
 ),
 
@@ -211,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      } else 
      if (!now_on && mouse_layer_on) {
           // 마우스 레이어 탈출 시
-          tap_code(KC_F14);
+          tap_code(KC_F15);
      } 
      mouse_layer_on = now_on;
      return state;
