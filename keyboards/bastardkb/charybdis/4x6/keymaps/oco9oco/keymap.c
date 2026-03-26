@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5,                         __________________NUMROW_R_________________, KC_MINS,
      KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                         __________________QWERTY_R1________________, KC_EQL,
      SFT_CAPS, __________________QWERTY_SACS_L2___________,        __________________QWERTY_R2________________, KC_QUOT,
-     G_LNG,  KC_Z, LALT_T(KC_X), KC_C, KC_V, KC_B,                         __________________QWERTY_HOME_R3___________, KC_BSLS,
+     G_LNG,  KC_Z, LALT_T(KC_X), KC_C, KC_V, KC_B,                 __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
                               TG(_BASE_NOMOD), KC_LNG1,      THUMB_R1
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE_NOMOD] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     KC_ESC,  MS_WHLL, MS_BTN2, MS_BTN3, MS_BTN1, MS_WHLR,          __________________NUMROW_R_________________, KC_MINS,
+     KC_ESC,  MS_WHLL, MS_BTN2, MS_BTN1, MS_BTN3, MS_WHLR,          __________________NUMROW_R_________________, KC_MINS,
      ALT_TAB, __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
      _______, __________________QWERTY_L2_SFTA___________,          __________________QWERTY_R2________________, KC_QUOT,
      _______, KC_Z, LALT_T(KC_X),  KC_C,  KC_V,   KC_B,             __________________QWERTY_HOME_R3___________, KC_BSLS,
@@ -105,10 +105,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          KC_LALT,    KC_SPC,  KC_LCTL,             KC_ENT, THUMB_R3,// TRACK //
                                         KC_I,    KC_O,             TO(_BASE)        // BALL  //
 ),
-
-
-
-
 
 
 [_NAV] = LAYOUT_charybdis_wrapper(
@@ -148,8 +144,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
-     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     KC_TAB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
+     _______, S_D_MOD,S_D_RMOD, DPI_MOD,DPI_RMOD, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
+     KC_TAB,  XXXXXXX, C(KC_X), C(KC_C), C(KC_V), KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
      _______, KC_LSFT, SNIPING, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
      KC_ENT,  KC_LGUI, KC_LALT, KC_LCTL, MS_BTN2, XXXXXXX,         DPI_RMOD, SNIPING, MS_BTN1, DRGSCRL, MS_BTN2, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯

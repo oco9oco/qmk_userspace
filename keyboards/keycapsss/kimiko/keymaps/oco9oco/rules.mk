@@ -1,9 +1,1 @@
-OLED_ENABLE = no
-ENCODER_ENABLE = no       # ENables the use of one or more encoders
-RGBLIGHT_ENABLE = no      # Enable keyboard RGB underglow
-RGB_MATRIX_ENABLE = no
-AUTO_SHIFT_ENABLE= no
-CAPS_WORD_ENABLE = no
-LTO_ENABLE = yes
-COMBO_ENABLE = no
-SPLIT_KEYBOARD = yes
+BOARD = GENERIC_RP_RP2040
