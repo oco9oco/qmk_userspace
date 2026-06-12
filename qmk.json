@@ -1,7 +1,7 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["keycapsss/kimiko/rev2", "oco9oco"],
+        ["keycapsss/kimiko/rev1", "oco9oco"],
         ["bastardkb/charybdis/4x6/elitec", "oco9oco"],
         ["crkbd/rev1", "default"]
     ]
