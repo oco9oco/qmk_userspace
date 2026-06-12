@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC,  MS_WHLL, MS_BTN2, MS_BTN1, MS_BTN3, MS_WHLR,          __________________NUMROW_R_________________, KC_MINS,
      ALT_TAB, __________________QWERTY_L1________________,          __________________QWERTY_R1________________, KC_EQL,
      _______, __________________QWERTY_L2_SFTA___________,          __________________QWERTY_R2________________, KC_QUOT,
-     _______, KC_Z, LALT_T(KC_X),  KC_C,  KC_V,   KC_B,             __________________QWERTY_HOME_R3___________, KC_BSLS,
+     _______, KC_Z, LALT_T(KC_X),  LCTL_T(KC_C),  LSFT_T(KC_V),   KC_B,             __________________QWERTY_HOME_R3___________, KC_BSLS,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                               THUMB_L1,THUMB_L2, THUMB_L3,         THUMB_R3,THUMB_R2,
                                         _______, KC_TRNS,          THUMB_R1
@@ -145,9 +145,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ONEHAND] = LAYOUT_charybdis_wrapper(
 // ╭──────────────────────────────────────────────────────╮       ╭──────────────────────────────────────────────────────╮
      _______, S_D_MOD,S_D_RMOD, DPI_MOD,DPI_RMOD, KC_F5,           S_D_MOD,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,
-     KC_TAB,  XXXXXXX, C(KC_X), C(KC_C), C(KC_V), KC_F6,           S_D_RMOD, C(A(KC_7)), C(A(KC_8)), C(A(KC_9)), XXXXXXX, QK_MAKE,
-     _______, KC_LSFT, SNIPING, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
-     KC_ENT,  KC_LGUI, KC_LALT, KC_LCTL, MS_BTN2, XXXXXXX,         DPI_RMOD, SNIPING, MS_BTN1, DRGSCRL, MS_BTN2, XXXXXXX,
+     KC_TAB,  KC_LSFT, MS_WHLU, DRGSCRL, MS_WHLD, KC_F6,           S_D_RMOD, C(A(KC_4)), C(A(KC_5)), C(A(KC_6)), XXXXXXX, QK_MAKE,
+     _______, KC_LCTL, SNIPING, MS_BTN3, MS_BTN1, KC_F7,           DPI_MOD,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
+     KC_ENT,  KC_LGUI, KC_LALT, KC_LCTL, MS_BTN2, XXXXXXX,         DPI_RMOD, SNP_TOG, MS_BTN1, MS_BTN2, DRG_TOG, XXXXXXX,
 // ╰──────────────────────────────────────────────────────┤       ├──────────────────────────────────────────────────────╯
                                 _______, _______, _______,/*      */_______, _______,
                                          KC_TRNS, _______,/*      */TO(_BASE)
@@ -189,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           case _NAV:
           case _IPC:
           case _FUNC:
-          case _BASE_NOMOD:
+          // case _BASE_NOMOD:
           case _DOOM:
                // remove_auto_mouse_target must be called to adjust state *before* setting enable
                state = remove_auto_mouse_layer(state, false);

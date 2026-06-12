@@ -57,8 +57,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef MOUSEKEY_WHEEL_TIME_TO_MAX
 
 #define MOUSEKEY_WHEEL_DELAY    0	//Delay between pressing a wheel key and wheel movement
-#define MOUSEKEY_WHEEL_INTERVAL	50	//Time between wheel movements
-#define MOUSEKEY_WHEEL_MAX_SPEED 3
+#define MOUSEKEY_WHEEL_INTERVAL	200	//Time between wheel movements
+#define MOUSEKEY_WHEEL_MAX_SPEED 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
 
 #ifdef  MK_KINETIC_SPEED
