@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      SFT_CAPS, __________________QWERTY_SACS_L2___________,        __________________QWERTY_R2________________, KC_QUOT,
      G_LNG,  KC_Z, LALT_T(KC_X), KC_C, KC_V, KC_B,                 __________________QWERTY_HOME_R3___________, KC_BSLS,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-                                    THUMB_L1,THUMB_L2,THUMB_L3,         THUMB_R3,THUMB_R2,THUMB_R1
+                                    THUMB_L3,THUMB_L1,THUMB_L2,         THUMB_R3,THUMB_R2,THUMB_R1
 ),
 
 [_IPC] = LAYOUT_kimiko_wrapper(
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LGUI, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT,  KC_F7,           KC_INS,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
      G(C(KC_D)), NAV(Z), C(KC_X), C(KC_C), C(KC_V), C(KC_B),        KC_APP,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-                                         BRKT,    KC_BSPC, KC_DEL,           _______, KC_TRNS, _______  
+                                         KC_DEL, _______, KC_BSPC,           _______, KC_TRNS, _______  
 ),
 
 [_MOUSE] = LAYOUT_kimiko_wrapper(
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_P,    KC_LSFT, MS_LEFT, MS_DOWN, MS_RGHT, KC_F7,            XXXXXXX, MS_ACL0, MS_BTN1, MS_BTN2, MS_BTN3, KC_ENT,
      KC_X,    KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, C(KC_B),          KC_APP,  MS_ACL0, MS_BTN4, MS_BTN5, XXXXXXX, XXXXXXX,
 // |--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-                                 KC_LCTL, KC_SPC,  KC_ENT,                          KC_TRNS, _______, _______
+                                 KC_ENT, KC_LCTL,  KC_SPC,                          KC_TRNS, _______, _______
 ),
 
 [_FUNC] = LAYOUT_kimiko_wrapper(
