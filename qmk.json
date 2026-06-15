@@ -3,6 +3,7 @@
     "build_targets": [
         ["keycapsss/kimiko/rev1", "oco9oco"],
         ["bastardkb/charybdis/4x6/elitec", "oco9oco"],
-        ["crkbd/rev1", "default"]
+        ["crkbd/rev1", "default"],
+        ["silakka54", "default"]
     ]
 }
